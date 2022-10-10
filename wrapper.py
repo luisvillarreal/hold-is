@@ -31,15 +31,15 @@ while(True):
   except:
     print('SAP Update service unavailable...')
 
-    try:
-	count = 0
-	print('Sleeping...')
-	while(True):
-	    time.sleep(1)
-	    print(str(FREQ - count).zfill(2), end = '\r')
-	    count += 1
-	    if count > FREQ:
-		break
-    except KeyboardInterrupt:
-	print('Good bye!')
-	sys.exit(0)
+  try:
+    count = 0
+    print('Sleeping...')
+    while(True):
+      time.sleep(1)
+      print(str(FREQ - count).zfill(2), end = '\r')
+      count += 1
+      if count > FREQ:
+        break
+  except KeyboardInterrupt:
+    print('Good bye!')
+    sys.exit(0)
