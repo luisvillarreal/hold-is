@@ -19,11 +19,11 @@ while(True):
   except:
     print('Could not run Gastos...')
   
-  try:
-    print('Running Otros...')
-    otros.main()
-  except:
-    print('Could not run Otros...')
+  #try:
+  print('Running Otros...')
+  otros.main()
+  #except:
+  #  print('Could not run Otros...')
 
   print('Running SAP...')
   try:
