@@ -8,7 +8,7 @@ import time
 import pymysql
 import boto3
 
-import query_pmts_aws
+import query_pmts_gastos
 
 query_pmts = query_pmts_gastos.query
 
