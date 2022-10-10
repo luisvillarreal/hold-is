@@ -206,7 +206,6 @@ def main():
 
         generate_reference(conn)
         generate_reference_35(conn)
-        generate_sequentials(conn)
 
         tmstp = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
         print(f'{tmstp} Buscando registros nuevos...')
