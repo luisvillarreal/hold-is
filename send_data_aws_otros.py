@@ -269,8 +269,12 @@ def main():
                     dict_[i]['sn.country'] = dict_[i].pop('company_address.country')
                     dict_[i]['sn.nombre'] = dict_[i].pop('pendientes_pagar.owner')
                     dict_[i]['sn.address'] = dict_[i].pop('company_address.address')
-                    dict_[i]['sn.city'] = dict_[i].pop('company_address.city')                    
-
+                    dict_[i]['sn.city'] = dict_[i].pop('company_address.city')
+                    
+                    for ky in dict_[i].keys():
+                        if 'pago_procesado_emp.' in ky:
+                            ky_ = ky.replace('_emp','')
+                            dict_[i][ky_] = dict_[i].pop(ky)
                 try:
                     payloads[currency][layout_name].append(dict_[i])
                 except:
