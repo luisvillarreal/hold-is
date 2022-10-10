@@ -250,7 +250,7 @@ def main():
                 dict_[i]['vencimiento_date'] = (datetime.now() + timedelta(days = 7)).strftime('%Y-%m-%d %H:%M:%S.0') if currency == 'MXN' else ' '              
 
 
-                elif 'hsbc' in layout_name.lower():
+                if 'hsbc' in layout_name.lower():
 
                     if len(dict_[i]['pendientes_pagar.cuenta_empleado']) not in [11,18]:
                         print(f"Transaccion rechazada, tabla: pago_procesado_emp, referencia_alphanumerica: {dict_[i]['pago_procesado_emp.referencia_alphanumerica']}")
