@@ -251,7 +251,7 @@ def main():
 
                 if 'hsbc' in layout_name.lower():
 
-                    if len(dict_[i]['pendientes_pagar.cuenta_empleado']) not in [11,18]:
+                    if len(dict_[i]['pendientes_pagar.cuenta_empleado']) not in [10,18]:
                         print(f"Transaccion rechazada, tabla: pago_procesado_emp, referencia_alphanumerica: {dict_[i]['pago_procesado_emp.referencia_alphanumerica']}")
                         reject_tranx(
                             'referencia_alphanumerica',
