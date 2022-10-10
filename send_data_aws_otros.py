@@ -72,7 +72,7 @@ def generate_reference(conn):
 
     query_update = '''
     UPDATE pago_procesado_emp
-    SET pago_procesado.referencia_alphanumerica = %s, pago_procesado.referencia_numerica = %s
+    SET referencia_alphanumerica = %s, referencia_numerica = %s
     WHERE id = %s
     AND referencia_alphanumerica is NULL
     '''
