@@ -300,7 +300,7 @@ def main():
                             json_response = json.loads(response['Payload'].read())
                             try:
                                 update_dt_mysql(conn, payload, 'pago_procesado_emp.referencia_alphanumerica', 'pago_procesado_emp', 'lambda_dt')
-                                update_dt_mysql(conn, json.loads(json_response['body']), 'pago_procesado_emp.referencia_alphanumerica', 'pago_procesado_emp', 'layout_dt')
+                                update_dt_mysql(conn, json.loads(json_response['body']), 'pago_procesado.referencia_alphanumerica', 'pago_procesado_emp', 'layout_dt')
                                 update_dt_mysql(conn, payload, 'pago_procesado_emp.referencia_alphanumerica', 'pago_procesado_emp', 'bank_response_dt')
                                 update_mysql(conn, payload, 'pago_procesado_emp.referencia_alphanumerica', 'pago_procesado_emp', 'status', 1)
                             except KeyError:
