@@ -1,22 +1,15 @@
 query = '''
 SELECT
-cuentassn.banco AS `cuentassn.banco`,
-cuentassn.cuenta AS `cuentassn.cuenta`,
+pendientes_pagar.empbankcode AS `pendientes_pagar.empbankcode`,
+pendientes_pagar.cuenta_empleado AS `pendientes_pagar.cuenta_empleado`,
 layout.nombre AS `layout.nombre`,
 pendientes_pagar.moneda AS `pendientes_pagar.moneda`,
+pendientes_pagar.owner AS `pendientes_pagar.owner`,
 cuentas.cuenta AS `cuentas.cuenta`,
-pago_procesado.secuencial_diario AS `pago_procesado.secuencial_diario`,
 pago_procesado.referencia_numerica AS `pago_procesado.referencia_numerica`,
 pago_procesado.referencia_numerica_35 AS `pago_procesado.referencia_numerica_35`,
 pago_procesado.referencia_alphanumerica AS `pago_procesado.referencia_alphanumerica`,
-sn.rfc AS `sn.rfc`,
-sn.zip_code AS `sn.zip_code`,
-sn.country AS `sn.country`,
-sn.nombre AS `sn.nombre`,
-sn.address AS `sn.address`,
-sn.city AS `sn.city`,
-sn.codigo AS `sn.codigo`,
-company.razon_social AS `company.razon_social`,
+company_address
 sum(pago_efectuado.importe) AS `pago_efectuado.importe`
 FROM pago_efectuado
 INNER JOIN pago_procesado ON pago_efectuado.id = pago_procesado.pago_efectuado_id
