@@ -271,7 +271,7 @@ def main():
                     dict_[i]['sn.address'] = dict_[i].pop('company_address.address')
                     dict_[i]['sn.city'] = dict_[i].pop('company_address.city')
                     
-                    keys_ = dict_[i].keys()
+                    keys_ = list(dict_[i].keys())
                     for ky in keys_:
                         if 'pago_procesado_emp.' in ky:
                             ky_ = ky.replace('_emp','')
