@@ -13,22 +13,23 @@ print(proc.stdout)
 print(proc.stderr)
 
 while(True):
-    try:
-	print('Running Gastos...')
-	gastos.main()
-    except:
-	print('Could not run Gastos...')
-    try:
-	print('Running Otros...')
-	otros.main()
-    except:
-	print('Could not run Otros...')
+  try:
+    print('Running Gastos...')
+    gastos.main()
+  except:
+    print('Could not run Gastos...')
+  
+  try:
+    print('Running Otros...')
+    otros.main()
+  except:
+    print('Could not run Otros...')
 
-    print('Running SAP...')
-    try:
-	sap.main()
-    except:
-	print('SAP Update service unavailable...')
+  print('Running SAP...')
+  try:
+    sap.main()
+  except:
+    print('SAP Update service unavailable...')
 
     try:
 	count = 0
