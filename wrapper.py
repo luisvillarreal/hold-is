@@ -1,11 +1,16 @@
 import time
 import sys
+from subprocess import run, PIPE
 
 import send_data_aws_gastos as gastos
 import send_data_aws_otros as otros
 import update_sap as sap
 
 FREQ = 30
+
+proc = run(['git', 'pull'], shell = True, stdout = PIPE, stderr = PIPE)
+print(proc.stdout)
+print(proc.stderr)
 
 while(True):
     try:
