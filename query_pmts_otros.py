@@ -13,7 +13,6 @@ company_address.zip_code AS `company_address.zip_code`,
 company_address.country AS `company_address.country`,
 company_address.address AS `company_address.address`,
 company_address.city AS `company_address.city`,
-company_address.razon_social AS `company_address.razon_social`,
 sum(pago_efectuado.importe) AS `pago_efectuado.importe`
 FROM pago_efectuado
 INNER JOIN pago_procesado_emp ON pago_efectuado.id = pago_procesado_emp.pago_efectuado_id
@@ -39,6 +38,5 @@ pago_procesado_emp.referencia_alphanumerica,
 company_address.zip_code,
 company_address.country,
 company_address.address,
-company_address.city,
-company_address.razon_social
+company_address.city
 '''
