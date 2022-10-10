@@ -270,9 +270,9 @@ def main():
                     dict_[i]['sn.nombre'] = dict_[i].pop('pendientes_pagar.owner')
                     dict_[i]['sn.address'] = dict_[i].pop('company_address.address')
                     dict_[i]['sn.city'] = dict_[i].pop('company_address.city')
-                    dict_[i]['pago_procesado.referencia_numerica_35'] = dict_[i].pop('pago_procesado_emp.referencia_numerica_35')
-                    dict_[i]['pago_procesado.referencia_numerica'] = dict_[i].pop('pago_procesado_emp.referencia_numerica')
-                    dict_[i]['pago_procesado.referencia_alphanumerica'] = dict_[i].pop('pago_procesado_emp.referencia_alphanumerica')
+                    dict_[i]['pago_procesado.referencia_numerica_35'] = dict_[i]['pago_procesado_emp.referencia_numerica_35']
+                    dict_[i]['pago_procesado.referencia_numerica'] = dict_[i]['pago_procesado_emp.referencia_numerica']
+                    dict_[i]['pago_procesado.referencia_alphanumerica'] = dict_[i]['pago_procesado_emp.referencia_alphanumerica']
                     
                 try:
                     print(json.dumps(dict_[i], indent = 4))
