@@ -246,8 +246,12 @@ def main():
                     currency = 'MXN'
                     dict_[i]['pendientes_pagar.moneda'] = currency
                 
-                dict_[i]['vencimiento_date'] = (datetime.now() + timedelta(days = 7)).strftime('%Y-%m-%d %H:%M:%S.0') if currency == 'MXN' else ' '              
-
+                dict_[i]['vencimiento_date'] = (datetime.now() + timedelta(days = 7)).strftime('%Y-%m-%d %H:%M:%S.0') if currency == 'MXN' else ' '
+                try:
+                    dict_[i]['codigo_banco'],  dict_[i]['banco.nombre'], dict_[i]['banco.codigo_swift'] = get_bank_info('HSBC', layout_name, conn)
+                except:
+                    print(f"No se encontro {dict_[i]['cuentassn.banco']} en la tabla de Bancos...")
+                    continue
 
                 if 'hsbc' in layout_name.lower():
 
