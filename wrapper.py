@@ -8,11 +8,11 @@ import update_sap as sap
 
 FREQ = 30
 
-proc = run(['git', 'pull'], shell = True, stdout = PIPE, stderr = PIPE)
-print(proc.stdout)
-print(proc.stderr)
-
 while(True):
+  proc = run(['git', 'pull'], shell = True, stdout = PIPE, stderr = PIPE)
+  print(proc.stdout.decode('utf-8'))
+  print(proc.stderr.decode('utf-8'))
+
   try:
     print('Running Gastos...')
     gastos.main()
