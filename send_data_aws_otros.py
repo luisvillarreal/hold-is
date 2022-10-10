@@ -262,6 +262,14 @@ def main():
                             conn
                         )
                         continue
+                    dict_[i]['cuentassn.banco'] = dict_[i].pop('pendientes_pagar.empbankcode')
+                    dict_[i]['cuentassn.cuenta'] = dict_[i].pop('pendientes_pagar.cuenta_empleado')
+                    dict_[i]['sn.rfc'] = ''
+                    dict_[i]['sn.zip_code'] = dict_[i].pop('company_address.zip_code')
+                    dict_[i]['sn.country'] = dict_[i].pop('company_address.country')
+                    dict_[i]['sn.nombre'] = dict_[i].pop('pendientes_pagar.owner')
+                    dict_[i]['sn.address'] = dict_[i].pop('company_address.address')
+                    dict_[i]['sn.city'] = dict_[i].pop('company_address.city')                    
 
                 try:
                     payloads[currency][layout_name].append(dict_[i])
