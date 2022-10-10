@@ -1,3 +1,6 @@
+%load_ext autoreload
+%autoreload 2
+
 import time
 import sys
 from subprocess import run, PIPE
