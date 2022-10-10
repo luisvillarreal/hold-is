@@ -8,26 +8,32 @@ import update_sap as sap
 FREQ = 30
 
 while(True):
-
+    try:
 	print('Running Gastos...')
 	gastos.main()
+    except:
+	print('Could not run Gastos...')
+    try:
 	print('Running Otros...')
 	otros.main()
-	print('Running SAP...')
-	try:
-		sap.main()
-	except:
-		print('SAP Update service unavailable...')
+    except:
+	print('Could not run Otros...')
 
-	try:
-		count = 0
-		print('Sleeping...')
-		while(True):
-			time.sleep(1)
-			print(str(FREQ - count).zfill(2), end = '\r')
-			count += 1
-			if count > FREQ:
-				break
-	except KeyboardInterrupt:
-		print('Good bye!')
-		sys.exit(0)
+    print('Running SAP...')
+    try:
+	sap.main()
+    except:
+	print('SAP Update service unavailable...')
+
+    try:
+	count = 0
+	print('Sleeping...')
+	while(True):
+	    time.sleep(1)
+	    print(str(FREQ - count).zfill(2), end = '\r')
+	    count += 1
+	    if count > FREQ:
+		break
+    except KeyboardInterrupt:
+	print('Good bye!')
+	sys.exit(0)
