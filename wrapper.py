@@ -1,17 +1,15 @@
-%load_ext autoreload
-%autoreload 2
-
 import time
 import sys
 from subprocess import run, PIPE
 
-import send_data_aws_gastos as gastos
-import send_data_aws_otros as otros
-import update_sap as sap
-
 FREQ = 30
 
 while(True):
+  
+  import send_data_aws_gastos as gastos
+  import send_data_aws_otros as otros
+  import update_sap as sap
+
   proc = run(['git', 'pull'], shell = True, stdout = PIPE, stderr = PIPE)
   print(proc.stdout.decode('utf-8'))
   print(proc.stderr.decode('utf-8'))
