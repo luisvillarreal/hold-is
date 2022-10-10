@@ -276,6 +276,7 @@ def main():
                             ky_ = ky.replace('_emp','')
                             dict_[i][ky_] = dict_[i].pop(ky)
                 try:
+                    print(json.dumps(dict_[i], indent = 4))
                     payloads[currency][layout_name].append(dict_[i])
                 except:
                     pass
