@@ -10,7 +10,7 @@ import boto3
 
 import query_pmts_aws
 
-query_pmts = query_pmts_aws.query
+query_pmts = query_pmts_gastos.query
 
 config = ConfigParser()
 config.read('config.ini')
