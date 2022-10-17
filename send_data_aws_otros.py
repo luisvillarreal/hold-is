@@ -81,7 +81,7 @@ def generate_reference(conn):
     WHERE pendientes_pagar.cuenta_empleado = %s
     AND pendientes_pagar.moneda = %s
     AND pago_efectuado.layout_id = %s
-    AND pago_procesado.referencia_alphanumerica is NULL
+    AND pago_procesado_emp.referencia_alphanumerica is NULL
     '''
 
     update_values = []
