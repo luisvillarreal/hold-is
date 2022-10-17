@@ -112,18 +112,24 @@ def generate_reference_35(conn):
 
     cur = conn.cursor()
     query = '''
-    SELECT id
+    SELECT DISTINCT pendientes_pagar.moneda AS `pendientes_pagar.moneda`,
+    pago_efectuado.layout_id AS `pago_efectuado.layout_id`
     FROM pago_procesado_emp
-    WHERE referencia_numerica_35 is NULL
+    INNER JOIN pago_efectuado ON pago_procesado_emp.pago_efectuado_id = pago_efectuado.id
+    INNER JOIN pendientes_pagar ON pendientes_pagar.id = pago_efectuado.pendiente_pagar_id
+    WHERE pago_procesado.referencia_numerica_35 is NULL
     '''
 
     cur.execute(query)
 
     query_update = '''
     UPDATE pago_procesado_emp
-    SET referencia_numerica_35 = %s
-    WHERE id = %s
-    AND referencia_numerica_35 is NULL
+    INNER JOIN pago_efectuado ON pago_procesado_emp.pago_efectuado_id = pago_efectuado.id
+    INNER JOIN pendientes_pagar ON pendientes_pagar.id = pago_efectuado.pendiente_pagar_id
+    SET pago_procesado_emp.referencia_numerica_35 = %s
+    WHERE pendientes_pagar.moneda = %s
+    AND pago_efectuado.layout_id = %s
+    AND pago_procesado.referencia_numerica_35 is NULL
     '''
 
     update_values = []
@@ -132,7 +138,8 @@ def generate_reference_35(conn):
         update_values.append(
             (
                 reference_number,
-                item['id']
+                item['pendientes_pagar.moneda'],
+                item['pago_efectuado.layout_id']
             )
         )
         time.sleep(0.5)
