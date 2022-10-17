@@ -63,18 +63,25 @@ def clean_reference(conn, table_name):
 def generate_reference(conn):
     cur = conn.cursor()
     query = '''
-    SELECT id
+    SELECT DISTINCT pendientes_pagar.cuenta_empleado AS `pendientes_pagar.cuenta_empleado`, pendientes_pagar.moneda AS `pendientes_pagar.moneda`,
+    pago_efectuado.layout_id AS `pago_efectuado.layout_id`
     FROM pago_procesado_emp
-    WHERE referencia_alphanumerica is NULL
+    INNER JOIN pago_efectuado ON pago_procesado_emp.pago_efectuado_id = pago_efectuado.id
+    INNER JOIN pendientes_pagar ON pendientes_pagar.id = pago_efectuado.pendiente_pagar_id
+    WHERE pago_procesado_emp.referencia_alphanumerica is NULL
     '''
 
     cur.execute(query)
 
     query_update = '''
     UPDATE pago_procesado_emp
-    SET referencia_alphanumerica = %s, referencia_numerica = %s
-    WHERE id = %s
-    AND referencia_alphanumerica is NULL
+    INNER JOIN pago_efectuado ON pago_procesado.pago_efectuado_id = pago_efectuado.id
+    INNER JOIN pendientes_pagar ON pendientes_pagar.id = pago_efectuado.pendiente_pagar_id
+    SET pago_procesado_emp.referencia_alphanumerica = %s, pago_procesado_emp.referencia_numerica = %s
+    WHERE pendientes_pagar.cuenta_empleado = %s
+    AND pendientes_pagar.moneda = %s
+    AND pago_efectuado.layout_id = %s
+    AND pago_procesado.referencia_alphanumerica is NULL
     '''
 
     update_values = []
@@ -85,7 +92,9 @@ def generate_reference(conn):
             (
                 reference_alphanumber,
                 reference_number,
-                item['id']
+                item['pendientes_pagar.cuenta_empleado'],
+                item['pendientes_pagar.moneda'],
+                item['pago_efectuado.layout_id']
             )
         )
         time.sleep(0.5)
