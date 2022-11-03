@@ -293,14 +293,18 @@ def main():
                     'HSBC SPEI': [],
                     'HSBC SPID': [],
                     'CITIBANAMEX MB':[],
-                    'CITIBANAMEX SPID': []
+                    'CITIBANAMEX SPID': [],
+                    'CITIBANAMEX SPEI': [],
+                    'CITIBANAMEX USD': []
                 },
                 'USD': {
                     'HSBC TEF': [],
                     'HSBC SPEI': [],
                     'HSBC SPID': [],
                     'CITIBANAMEX MB':[],
-                    'CITIBANAMEX SPID': []
+                    'CITIBANAMEX SPID': [],
+                    'CITIBANAMEX SPEI': [],
+                    'CITIBANAMEX USD': []
                 }
             }
 
