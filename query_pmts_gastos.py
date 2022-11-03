@@ -27,7 +27,7 @@ INNER JOIN cuentassn ON pago_efectuado.cuenta_sn_id = cuentassn.id
 INNER JOIN sn ON cuentassn.sn_id = sn.id
 INNER JOIN company ON cuentas.company_id = company.id
 WHERE pago_procesado.lambda_dt is NULL
-AND layout.nombre in ('HSBC TEF','HSBC SPEI','HSBC SPID','CITIBANAMEX MB','CITIBANAMEX SPID')
+AND layout.nombre in ('HSBC TEF','HSBC SPEI','HSBC SPID','CITIBANAMEX MB','CITIBANAMEX SPID', 'CITIBANAMEX SPEI', 'CITIBANAMEX USD')
 AND pago_procesado.referencia_numerica is not NULL
 AND pago_procesado.status = 0
 GROUP BY
