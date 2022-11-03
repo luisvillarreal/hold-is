@@ -23,7 +23,7 @@ INNER JOIN layout ON pago_efectuado.layout_id = layout.id
 INNER JOIN company ON cuentas.company_id = company.id
 INNER JOIN company_address ON company_address.id = 1
 WHERE pago_procesado_emp.lambda_dt is NULL
-AND layout.nombre in ('HSBC TEF','HSBC SPEI','HSBC SPID','CITIBANAMEX MB','CITIBANAMEX SPID')
+AND layout.nombre in ('HSBC TEF','HSBC SPEI','HSBC SPID')
 AND pago_procesado_emp.referencia_numerica is not NULL
 AND pago_procesado_emp.status = 0
 GROUP BY
