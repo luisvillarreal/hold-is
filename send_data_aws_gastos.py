@@ -9,8 +9,11 @@ import pymysql
 import boto3
 
 import query_pmts_gastos
+import cta_fuente
 
 query_pmts = query_pmts_gastos.query
+cuenta_fuente = cta_fuente.cuenta_fuente
+cuenta_fuente_alt = cta_fuente.cuenta_fuente_alt
 
 config = ConfigParser()
 config.read('config.ini')
@@ -352,12 +355,11 @@ def main():
                     dict_[i]['tipo_cuenta_beneficiario'] =  tipo_cuenta
                     dict_[i]['codigo_transaccion'] = codigo_transaccion
 
-                    cuenta_fuente = '00009229019'
                     codigo_transaccion_local = '05'
-                    if currency == 'USD' and 'banamex' not in dict_[i]['banco.nombre'].lower():
-                        cuenta_fuente = '00009229507'
-                        codigo_transaccion_local = '11'
                     dict_[i]['cuentas.cuenta'] = cuenta_fuente
+                    if currency == 'USD' and 'banamex' not in dict_[i]['banco.nombre'].lower():
+                        dict_[i]['cuentas.cuenta'] = cuenta_fuente_alt                        
+                        codigo_transaccion_local = '11'
                     dict_[i]['codigo_transaccion_local'] = codigo_transaccion_local
 
 
