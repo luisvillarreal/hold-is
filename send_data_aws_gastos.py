@@ -375,6 +375,8 @@ def main():
                             conn
                         )
                         continue
+                        
+                    dict_[i]['ref_cuenta_dbt_mas_rfc_crt'] = f"{dict_[i]['cuentas.cuenta'].strip()[:7]}{dict_[i]['sn.rfc']}"
 
                 try:
                     payloads[currency][layout_name].append(dict_[i])
