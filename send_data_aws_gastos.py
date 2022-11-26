@@ -379,7 +379,7 @@ def main():
                         continue
                         
                     dict_[i]['ref_cuenta_dbt_mas_rfc_crt'] = f"{dict_[i]['cuentas.cuenta'].strip()[:7]}"
-                    print(dict_[i]['ref_cuenta_dbt_mas_rfc_crt'])
+                    # print(dict_[i]['ref_cuenta_dbt_mas_rfc_crt'])
 
                 try:
                     payloads[currency][layout_name].append(dict_[i])
