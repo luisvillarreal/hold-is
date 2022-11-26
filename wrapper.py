@@ -1,15 +1,15 @@
 import time
 import sys
 from subprocess import run, PIPE
-
+from importlib import reload
+import send_data_aws_gastos as gastos
+import send_data_aws_otros as otros
+import update_sap as sap
+  
 FREQ = 30
 
 while(True):
   
-  import send_data_aws_gastos as gastos
-  import send_data_aws_otros as otros
-  import update_sap as sap
-
   proc = run(['git', 'pull'], shell = True, stdout = PIPE, stderr = PIPE)
   print(proc.stdout.decode('utf-8'))
   print(proc.stderr.decode('utf-8'))
@@ -44,3 +44,7 @@ while(True):
   except KeyboardInterrupt:
     print('Good bye!')
     sys.exit(0)
+  
+  reload(gastos)
+  reload(otros)
+  reload(sap)
