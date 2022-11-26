@@ -378,7 +378,7 @@ def main():
                         )
                         continue
                         
-                    dict_[i]['ref_cuenta_dbt_mas_rfc_crt'] = f"{dict_[i]['cuentas.cuenta'].strip()[:7]}{dict_[i]['sn.rfc']}"
+                    dict_[i]['ref_cuenta_dbt_mas_rfc_crt'] = f"{dict_[i]['cuentas.cuenta'].strip()[:7]}"
                     print(dict_[i]['ref_cuenta_dbt_mas_rfc_crt'])
 
                 try:
