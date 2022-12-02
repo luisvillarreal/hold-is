@@ -5,7 +5,7 @@ cuentassn.cuenta AS `cuentassn.cuenta`,
 layout.nombre AS `layout.nombre`,
 pendientes_pagar.moneda AS `pendientes_pagar.moneda`,
 cuentas.cuenta AS `cuentas.cuenta`,
-cuentassn.bicswift AS `cuentassn.bicswift`,
+cuentassn.bic_swift AS `cuentassn.bic_swift`,
 pago_procesado.secuencial_diario AS `pago_procesado.secuencial_diario`,
 pago_procesado.referencia_numerica AS `pago_procesado.referencia_numerica`,
 pago_procesado.referencia_numerica_35 AS `pago_procesado.referencia_numerica_35`,
@@ -28,7 +28,8 @@ INNER JOIN cuentassn ON pago_efectuado.cuenta_sn_id = cuentassn.id
 INNER JOIN sn ON cuentassn.sn_id = sn.id
 INNER JOIN company ON cuentas.company_id = company.id
 WHERE pago_procesado.lambda_dt is NULL
-AND layout.nombre in ('HSBC TEF','HSBC SPEI','HSBC SPID','CITIBANAMEX MB','CITIBANAMEX SPID', 'CITIBANAMEX SPEI', 'CITIBANAMEX USD')
+AND layout.nombre in ('HSBC TEF','HSBC SPEI','HSBC SPID', 'HSBC SWIFT',
+  'CITIBANAMEX MB','CITIBANAMEX SPID', 'CITIBANAMEX SPEI', 'CITIBANAMEX USD')
 AND pago_procesado.referencia_numerica is not NULL
 AND pago_procesado.status = 0
 GROUP BY
@@ -37,7 +38,7 @@ cuentassn.cuenta,
 layout.nombre,
 pendientes_pagar.moneda,
 cuentas.cuenta,
-cuentassn.bicswift,
+cuentassn.bic_swift,
 pago_procesado.secuencial_diario,
 pago_procesado.referencia_numerica,
 pago_procesado.referencia_numerica_35,
