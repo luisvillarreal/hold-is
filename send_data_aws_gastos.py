@@ -338,7 +338,7 @@ def main():
                     tipo_cuenta = '05'
                     codigo_transaccion = '001'
 
-                    if len(dict_[i]['cuentassn.cuenta']) != 18:
+                    if len(dict_[i]['cuentassn.cuenta']) != 18 and 'swift' not in layout_name.lower():
                         print(f"Transaccion rechazada, tabla: pago_procesado, id: {dict_[i]['pago_procesado.id']}")
                         reject_tranx(
                             dict_[i]['pago_procesado.id'],
@@ -367,7 +367,7 @@ def main():
 
                 elif 'hsbc' in layout_name.lower():
 
-                    if len(dict_[i]['cuentassn.cuenta']) != 18:
+                    if len(dict_[i]['cuentassn.cuenta']) != 18 and 'swift' not in layout_name.lower():
                         print(f"Transaccion rechazada, tabla: pago_procesado, referencia_alphanumerica: {dict_[i]['pago_procesado.referencia_alphanumerica']}")
                         reject_tranx(
                             'referencia_alphanumerica',
