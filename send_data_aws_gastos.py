@@ -304,10 +304,11 @@ def main():
                     'HSBC TEF': [],
                     'HSBC SPEI': [],
                     'HSBC SPID': [],
+                    'HSBC SWIFT': [],
                     'CITIBANAMEX MB':[],
                     'CITIBANAMEX SPID': [],
                     'CITIBANAMEX SPEI': [],
-                    'CITIBANAMEX USD': []
+                    'CITIBANAMEX USD': []                    
                 }
             }
 
