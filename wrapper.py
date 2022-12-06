@@ -14,11 +14,11 @@ while(True):
   print(proc.stdout.decode('utf-8'))
   print(proc.stderr.decode('utf-8'))
 
-  #try:
-  print('Running Gastos...')
-  gastos.main()
-  #except:
-  #  print('Could not run Gastos...')
+  try:
+    print('Running Gastos...')
+    gastos.main()
+  except:
+    print('Could not run Gastos...')
   
   try:
     print('Running Otros...')
