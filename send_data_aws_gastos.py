@@ -261,6 +261,7 @@ session = boto3.Session(
     region_name = 'us-west-2'
 )
 
+ENV = config['default']['env']
 
 def main():
     try:
@@ -386,6 +387,7 @@ def main():
                     # print(dict_[i]['ref_cuenta_dbt_mas_rfc_crt'])
 
                 try:
+                    dict_[i]['env'] = ENV
                     payloads[currency][layout_name].append(dict_[i])
                 except:
                     pass
