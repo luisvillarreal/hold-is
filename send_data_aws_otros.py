@@ -203,6 +203,7 @@ session = boto3.Session(
     region_name = 'us-west-2'
 )
 
+ENV = config['default']['env']
 
 def main():
     try:
@@ -296,6 +297,7 @@ def main():
                     
                 try:
                     #print(json.dumps(dict_[i], indent = 4))
+                    dict_[i]['env'] = ENV
                     payloads[currency][layout_name].append(dict_[i])
                 except:
                     pass
