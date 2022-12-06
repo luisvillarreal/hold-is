@@ -189,7 +189,10 @@ def generate_sequentials(conn):
     update_values = []
     for item in cur.fetchall():
         key = f"{item['dt'].strftime('%Y%m%d')}-{item['lyt']}"
-        date_seq_lookup[key] += 1
+        try:
+          date_seq_lookup[key] += 1
+        except:
+          date_seq_lookup[key] = 1
         rank = date_seq_lookup[key]
         update_values.append((rank, item['ref_num'], item['dt']))
 
