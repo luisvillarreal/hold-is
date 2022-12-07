@@ -312,7 +312,8 @@ def main():
                     'CITIBANAMEX MB':[],
                     'CITIBANAMEX SPID': [],
                     'CITIBANAMEX SPEI': [],
-                    'CITIBANAMEX USD': []                    
+                    'CITIBANAMEX USD': [],
+                    'CITIBANAMEX SWIFT': []
                 }
             }
 
