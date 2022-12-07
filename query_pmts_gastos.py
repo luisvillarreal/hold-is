@@ -29,7 +29,7 @@ INNER JOIN sn ON cuentassn.sn_id = sn.id
 INNER JOIN company ON cuentas.company_id = company.id
 WHERE pago_procesado.lambda_dt is NULL
 AND layout.nombre in ('HSBC TEF','HSBC SPEI','HSBC SPID', 'HSBC SWIFT',
-  'CITIBANAMEX MB','CITIBANAMEX SPID', 'CITIBANAMEX SPEI', 'CITIBANAMEX USD')
+  'CITIBANAMEX MB','CITIBANAMEX SPID', 'CITIBANAMEX SPEI', 'CITIBANAMEX USD', 'CITIBANAMEX SWIFT')
 AND pago_procesado.referencia_numerica is not NULL
 AND pago_procesado.status = 0
 GROUP BY
