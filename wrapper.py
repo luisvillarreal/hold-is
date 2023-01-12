@@ -17,20 +17,20 @@ while(True):
   try:
     print('Running Gastos...')
     gastos.main()
-  except:
-    print('Could not run Gastos...')
+  except Exception as e:
+    print(f'Could not run Gastos...\n{e}')
   
   try:
     print('Running Otros...')
     otros.main()
-  except:
-    print('Could not run Otros...')
+  except Exception as e:
+    print(f'Could not run Otros...\n{e}')
 
   try:
     print('Running SAP...')
     sap.main()
-  except:
-    print('SAP Update service unavailable...')
+  except Exception as e:
+    print(f'SAP Update service unavailable...\n{e}')
 
   try:
     count = 0
