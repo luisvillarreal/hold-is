@@ -200,7 +200,7 @@ having max(id);
 session = boto3.Session(
     aws_access_key_id = config['aws']['access_id'],
     aws_secret_access_key = config['aws']['secret_key'],
-    region_name = 'us-west-2'
+    region_name = config['aws']['region']
 )
 
 ENV = config['default']['env']
