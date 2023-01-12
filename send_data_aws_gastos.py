@@ -344,9 +344,10 @@ def main():
                     codigo_transaccion = '001'
 
                     if len(dict_[i]['cuentassn.cuenta']) != 18 and 'swift' not in layout_name.lower():
-                        print(f"Transaccion rechazada, tabla: pago_procesado, id: {dict_[i]['pago_procesado.id']}")
+                        print(f"Transaccion rechazada, tabla: pago_procesado, referencia_numerica: {dict_[i]['pago_procesado.referencia_numerica']}")
                         reject_tranx(
-                            dict_[i]['pago_procesado.id'],
+                            'referencia_numerica',
+                            dict_[i]['pago_procesado.referencia_numerica'],
                             'pago_procesado',
                             'Cuenta beneficiario no tiene 18 digitos (CLABE).',
                             2,
