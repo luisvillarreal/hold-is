@@ -21,21 +21,21 @@ while(True):
     gastos.main()
   except Exception as e:
     print(f'Could not run Gastos...\n{e}')
-    print(traceback.format_exec())
+    print(traceback.format_exc())
   
   try:
     print('Running Otros...')
     otros.main()
   except Exception as e:
     print(f'Could not run Otros...\n{e}')
-    print(traceback.format_exec())
+    print(traceback.format_exc())
 
   try:
     print('Running SAP...')
     sap.main()
   except Exception as e:
     print(f'SAP Update service unavailable...\n{e}')
-    print(traceback.format_exec())
+    print(traceback.format_exc())
 
   try:
     count = 0
