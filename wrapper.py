@@ -2,6 +2,8 @@ import time
 import sys
 from subprocess import run, PIPE
 from importlib import reload
+import traceback
+
 import send_data_aws_gastos as gastos
 import send_data_aws_otros as otros
 import update_sap as sap
@@ -19,18 +21,21 @@ while(True):
     gastos.main()
   except Exception as e:
     print(f'Could not run Gastos...\n{e}')
+    traceback.print_stack()
   
   try:
     print('Running Otros...')
     otros.main()
   except Exception as e:
     print(f'Could not run Otros...\n{e}')
+    traceback.print_stack()
 
   try:
     print('Running SAP...')
     sap.main()
   except Exception as e:
     print(f'SAP Update service unavailable...\n{e}')
+    traceback.print_stack()
 
   try:
     count = 0
