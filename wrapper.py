@@ -30,12 +30,12 @@ while(True):
     print(f'Could not run Otros...\n{e}')
     print(traceback.format_exc())
 
-  try:
-    print('Running SAP...')
-    sap.main()
-  except Exception as e:
-    print(f'SAP Update service unavailable...\n{e}')
-    print(traceback.format_exc())
+#   try:
+#     print('Running SAP...')
+#     sap.main()
+#   except Exception as e:
+#     print(f'SAP Update service unavailable...\n{e}')
+#     print(traceback.format_exc())
 
   try:
     count = 0
